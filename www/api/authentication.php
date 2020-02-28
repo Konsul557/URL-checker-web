@@ -1,5 +1,5 @@
 <?php
-require ('vendor/autoload.php');
+require ('../vendor/autoload.php');
 use \Firebase\JWT\JWT;
 
 require ('conn.php');
@@ -18,7 +18,7 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
     }
 }
 
-$key = "localhost";
+$secret_key = "localhost";
 
 if (in_array($user_name, $user_name_ar) and in_array($password, $pass_ar)) {
     //jwt
@@ -31,10 +31,13 @@ if (in_array($user_name, $user_name_ar) and in_array($password, $pass_ar)) {
             "pass" => $password
         )
     );
-    $jwt = JWT::encode($payload, $key);
-    //$answer = 'Успешно'."<br>";
-    //header('Location: url_send.php');
-    print_r($jwt);
+    $jwt = JWT::encode($payload, $secret_key);
+
+    echo json_encode(
+        array(
+            "jwt" => $jwt
+        )
+    );
 }else {
     echo "Такого пользователя не существует";
 }

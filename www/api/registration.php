@@ -17,5 +17,5 @@ if (in_array($email, $email_ar)) {
     $sql = "INSERT INTO users(user_name, email, password) VALUES(:user_name, :email, :password)";
     $query = $pdo->prepare($sql);
     $query->execute(['user_name' => $user_name, 'email' => $email,'password' => $password]);   //регистрация
-    //header('Location: 123.php');
+    echo 'Регистрация успешна';
 }

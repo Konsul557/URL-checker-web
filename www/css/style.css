@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+.button-ok {
+    color:white;
+    background-color: green;
+}
+.button-send {
+    color:white;
+    background-color: green;
+}
+.button-show {
+    color:white;
+    background-color: green;
+}

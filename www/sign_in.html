@@ -8,11 +8,22 @@
 </head>
 <body>
     <div class="container">
-        <form action="authentication.php" method="POST">
+        <form id="form" action="api/authentication.php" method="POST">
             <p><input type="text" name="user_name" placeholder="Введите имя"></p>
             <p><input type="text" name="password" placeholder="Введите пароль"></p>
             <p><button style="color:white; background-color: green;">SIGN IN</button></p>
         </form>
     </div>
+
+    <script>
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open('POST', 'api/authentication.php');
+        xmlhttp.setRequestHeader('Authorization', 'Bearer ' + token);
+        xmlhttp.send(null);
+    </script>
+
+
 </body>
+
+
 </html>
